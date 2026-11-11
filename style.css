@@ -1,0 +1,325 @@
+/* Segnale: esempio completo della consegna su Home e Programma. */
+
+/* Valori condivisi: le regole interessate li richiamano con var(). */
+:root {
+  --colore-primario: #8d7932;
+  --colore-primario-scuro: #173624;
+  --colore-sfondo: #f5f2e9;
+  --colore-testo: #202923;
+  --font-testo: Arial, Helvetica, sans-serif;
+  --font-titoli: Georgia, "Times New Roman", serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--colore-sfondo);
+  color: var(--colore-testo);
+  font-family: var(--font-testo);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+a {
+  color: var(--colore-primario);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:focus {
+  outline: 3px solid var(--colore-testo);
+}
+
+.container {
+  width: 92%;
+  max-width: 68rem;
+  margin: 0 auto;
+}
+
+.site-header {
+  padding: 1.25rem 0;
+  border-bottom: 4px solid var(--colore-primario);
+}
+
+.brand {
+  display: inline-block;
+  color: var(--colore-testo);
+  font-size: 1.75rem;
+  font-weight: bold;
+  line-height: 1.2;
+  text-decoration: none;
+}
+
+.brand span {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: normal;
+}
+
+nav {
+  margin-top: 1rem;
+}
+
+nav a {
+  display: inline-block;
+  margin-right: 1rem;
+  padding: 0.25rem 0;
+}
+
+.intro {
+  padding: 3rem 0 1rem;
+}
+
+.eyebrow,
+.event-meta {
+  color: #46564b;
+  font-size: 0.875rem;
+  font-weight: bold;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-titoli);
+  line-height: 1.2;
+}
+
+h1 {
+  max-width: 18ch;
+  margin: 0.75rem 0 1.25rem;
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+}
+
+h3 {
+  margin: 0.5rem 0 0.75rem;
+  font-size: 1.375rem;
+}
+
+.lead {
+  max-width: 48ch;
+  font-size: 1.25rem;
+}
+
+.reading-text {
+  max-width: 65ch;
+}
+
+.button-link {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.5rem;
+  background: var(--colore-primario);
+  color: #ffffff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.button-link:hover {
+  background: var(--colore-primario-scuro);
+}
+
+.content-section {
+  margin: 2rem 0 3rem;
+}
+
+.festival-image {
+  display: block;
+  width: 100%;
+  max-width: 54rem;
+  height: auto;
+  margin-top: 1.5rem;
+  border-radius: 0.75rem;
+}
+
+.venues {
+  padding-left: 1.25rem;
+}
+
+.venues li {
+  margin-bottom: 0.5rem;
+}
+
+/* Disposizione di base: una colonna. */
+.event-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.event-card {
+  overflow: hidden;
+  border: 1px solid #b7c0b7;
+  border-radius: 0.75rem;
+  background: #ffffff;
+}
+
+.event-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.event-body {
+  padding: 1.5rem;
+}
+
+.event-place {
+  margin-bottom: 0;
+  color: #46564b;
+  font-size: 0.875rem;
+}
+
+.site-footer {
+  padding: 1.25rem 0;
+  border-top: 1px solid #b7c0b7;
+  color: #46564b;
+  font-size: 0.875rem;
+}
+
+.skip-link {
+  position: absolute;
+  top: -6rem;
+  left: 1rem;
+  padding: 0.75rem 1rem;
+  background: #ffffff;
+  color: var(--colore-testo);
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* Da 600 px: due colonne. */
+@media (min-width: 600px) {
+  .event-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Da 1024 px: tre colonne. Questa regola segue quella da 600 px. */
+@media (min-width: 1024px) {
+  .event-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Swiper container responsive che si adatta alle proporzioni */
+.swiper {
+  width: 100%;
+  max-width: 600px;
+  height: auto; /* Permette al contenitore di ridimensionarsi in altezza */
+  margin: 2rem auto;
+  border-radius: 0.75rem;
+  border: 1px solid #b7c0b7;
+  background: #ffffff;
+  padding-bottom: 2.5rem; /* Spazio per la paginazione e i pallini */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Regola per l'immagine: visibile AL 100% senza ritagli */
+.slide-image {
+  width: 100%;
+  height: auto;
+  max-height: 350px; /* Limita l'altezza massima per monitor grandi */
+  object-fit: contain; /* Mostra l'intera immagine senza tagliarla */
+  background-color: #f0f0f0; /* Sfondo neutro di riempimento se le proporzioni differiscono */
+  border-top-left-radius: 0.75rem;
+  border-top-right-radius: 0.75rem;
+}
+
+/* Margine interno del testo dentro le slide */
+.slide-content {
+  padding: 1.0rem !important; /* Aumentato a 2.5rem e con !important per forzare l'effetto */
+}
+
+.slide-content h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.slide-content p {
+  margin-bottom: 1.0rem;
+}
+
+/* Contenitore Mappa Responsive */
+.map-responsive {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  border: 1px solid #b7c0b7;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.map-link {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+
+/* Elenco sedi */
+.venues-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 1.5rem;
+}
+
+.venues-list li {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.venues-list li:last-child {
+  border-bottom: none;
+}
+
+/* Mappa responsive e proporzionale allo schermo */
+.map-responsive iframe {
+  width: 100%;
+  border: 0;
+  
+  /* Altezza di base per dispositivi mobili */
+  height: 350px; 
+}
+
+/* Su schermi desktop/computer (da 768px in su) l'altezza diventa proporzionale alla finestra */
+@media (min-width: 768px) {
+  .map-responsive iframe {
+    /* 50vh significa il 50% dell'altezza della finestra del browser */
+    height: 50vh; 
+    min-height: 400px; /* Altezza minima garantita */
+    max-height: 600px; /* Evita che diventi troppo alta su schermi giganti */
+  }
+}
+
+/* ==========================================
+   PERSONALIZZAZIONE COLORI SWIPER (FRECCE & PALLINI)
+   ========================================== */
+
+/* Colore delle frecce (destra / sinistra) */
+.swiper-button-next,
+.swiper-button-prev {
+  color: var(--colore-primario) !important; /* Cambia qui il colore delle frecce */
+}
+
+/* Colore del pallino ATTIVO */
+.swiper-pagination-bullet-active {
+  background-color: var(--colore-primario) !important; /* Cambia qui il colore del pallino attivo */
+  opacity: 1 !important;
+}
+
+/* Colore dei pallini INATTIVI */
+.swiper-pagination-bullet {
+  background-color: #b7c0b7 !important; /* Cambia qui il colore dei pallini non attivi */
+  opacity: 0.6;
+}
