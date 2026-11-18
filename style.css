@@ -42,10 +42,21 @@ a:focus {
 }
 
 .site-header {
-  padding: 1.25rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* Evita che lo slider Swiper o la mappa uMap coprano l'intestazione */
+  background-color: var(--colore-sfondo); /* Sfondo opaco per mantenere il testo leggibile durante lo scorrimento */
+  padding: 0.75rem 0; /* Compatto su telefono per lasciare spazio alla lettura */
   border-bottom: 4px solid var(--colore-primario);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06); /* Leggera ombra per staccarlo dal contenuto */
 }
 
+/* Su schermi da 600px in su ripristina il padding più ampio */
+@media (min-width: 600px) {
+  .site-header {
+    padding: 1.25rem 0;
+  }
+}
 .brand {
   display: inline-block;
   color: var(--colore-testo);
@@ -67,9 +78,8 @@ nav {
 }
 
 nav a {
-  display: inline-block;
-  margin-right: 1rem;
-  padding: 0.25rem 0;
+  display: block;
+  padding: 0.35rem 0;
 }
 
 .intro {
@@ -200,8 +210,13 @@ h3 {
   top: 1rem;
 }
 
-/* Da 600 px: due colonne. */
+/* Da 600 px: menu orizzontale e due colonne per gli eventi. */
 @media (min-width: 600px) {
+  nav a {
+    display: inline-block;
+    margin-right: 1.25rem;
+  }
+
   .event-grid {
     grid-template-columns: repeat(2, 1fr);
   }
