@@ -23,7 +23,6 @@
     </div>
   </header>
 
-  <!-- CONTENITORE PRINCIPALE (Mantiene i margini corretti per tutti gli elementi) -->
   <main id="contenuto" class="container">
     
     <!-- 1. INTRODUZIONE -->
@@ -37,7 +36,6 @@
     <section class="content-section" aria-labelledby="titolo-sedi">
       <h2 id="titolo-sedi">Le sedi ufficiali</h2>
 
-      <!-- SWIPER CON FRECCE E PALLINI ALL'INTERNO -->
       <div class="swiper">
         <div class="swiper-wrapper">
           
@@ -79,7 +77,6 @@
 
         </div>
 
-        <!-- Controlli riposizionati dentro il box dello Swiper -->
         <div class="swiper-pagination"></div>
         <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>
@@ -121,7 +118,23 @@
       </ul>
     </section>
 
-    <!-- 4. COME PARTECIPARE -->
+    <!-- 4. METEO A TORINO ADESSO -->
+    <section class="content-section" aria-labelledby="titolo-meteo">
+      <h2 id="titolo-meteo">Meteo a Torino adesso</h2>
+      <p class="reading-text">Rilevazione meteorologica in tempo reale relativa alla giornata di oggi (non costituisce una previsione per le date del festival del 12–13 giugno).</p>
+
+      <div class="event-card" style="max-width: 600px; margin-top: 1rem;">
+        <div class="event-body">
+          <p id="meteo-stato" class="event-meta" aria-live="polite">Caricamento dei dati meteo in corso...</p>
+          <div id="meteo-dati"></div>
+          <p class="event-place" style="margin-top: 1rem;">
+            Dati meteo: <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a>, licenza <a href="https://creativecommons.org/licenses/by/4.0/deed.it" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. COME PARTECIPARE -->
     <section class="content-section" aria-labelledby="titolo-accesso">
       <h2 id="titolo-accesso">Come partecipare</h2>
       <p class="reading-text">Tutti gli appuntamenti del festival sono a ingresso gratuito con prenotazione consigliata.</p>
@@ -143,6 +156,45 @@
       pagination: { el: '.swiper-pagination', clickable: true },
       navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
     });
+
+    // CARICAMENTO METEO ATTUALE A TORINO
+    async function caricaMeteoTorino() {
+      const statoEl = document.getElementById('meteo-stato');
+      const datiEl = document.getElementById('meteo-dati');
+      const url = 'https://api.open-meteo.com/v1/forecast?latitude=45.0703&longitude=7.6869&current=temperature_2m,wind_speed_10m&timezone=Europe%2FRome';
+
+      try {
+        const risposta = await fetch(url);
+        if (!risposta.ok) {
+          throw new Error('Risposta non valida dal servizio meteo.');
+        }
+
+        const dati = await risposta.json();
+        const corrente = dati.current;
+        const unita = dati.current_units;
+
+        // Estrae data e ora leggibili da corrente.time (es. "2026-11-24T21:45")
+        const [dataIso, oraIso] = corrente.time.split('T');
+        const [anno, mese, giorno] = dataIso.split('-');
+        const dataLeggibile = `${giorno}/${mese}/${anno}`;
+
+        statoEl.textContent = `Aggiornato oggi (${dataLeggibile}) alle ${oraIso}`;
+
+        const pTemp = document.createElement('p');
+        pTemp.style.margin = '0.5rem 0';
+        pTemp.innerHTML = `<strong>Temperatura:</strong> ${corrente.temperature_2m} ${unita.temperature_2m}`;
+
+        const pVento = document.createElement('p');
+        pVento.style.margin = '0.5rem 0';
+        pVento.innerHTML = `<strong>Vento:</strong> ${corrente.wind_speed_10m} ${unita.wind_speed_10m}`;
+
+        datiEl.replaceChildren(pTemp, pVento);
+      } catch (errore) {
+        statoEl.textContent = 'Impossibile recuperare i dati meteo in questo momento.';
+      }
+    }
+
+    caricaMeteoTorino();
   </script>
 </body>
 </html>

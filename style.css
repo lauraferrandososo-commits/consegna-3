@@ -2,14 +2,13 @@
 
 /* Valori condivisi: le regole interessate li richiamano con var(). */
 :root {
-  --colore-primario: #8d7932;
-  --colore-primario-scuro: #173624;
-  --colore-sfondo: #f5f2e9;
-  --colore-testo: #202923;
-  --font-testo: Arial, Helvetica, sans-serif;
-  --font-titoli: Georgia, "Times New Roman", serif;
+  --colore-primario: #111111;       /* Nero intenso per link, bordi e pulsanti */
+  --colore-primario-scuro: #464646; /* Grigio scuro al passaggio del mouse */
+  --colore-sfondo: #ffffff;         /* Grigio chiaro per lo sfondo della pagina */
+  --colore-testo: #111111;          /* Nero per tutto il testo */
+  --font-testo: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-titoli: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-
 * {
   box-sizing: border-box;
 }
@@ -19,6 +18,7 @@ body {
   background: var(--colore-sfondo);
   color: var(--colore-testo);
   font-family: var(--font-testo);
+  font-weight: 300; /* Attiva Helvetica Neue Light */
   font-size: 1rem;
   line-height: 1.6;
 }
@@ -48,7 +48,7 @@ a:focus {
   background-color: var(--colore-sfondo); /* Sfondo opaco per mantenere il testo leggibile durante lo scorrimento */
   padding: 0.75rem 0; /* Compatto su telefono per lasciare spazio alla lettura */
   border-bottom: 4px solid var(--colore-primario);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06); /* Leggera ombra per staccarlo dal contenuto */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06); 
 }
 
 /* Su schermi da 600px in su ripristina il padding più ampio */
@@ -88,7 +88,7 @@ nav a {
 
 .eyebrow,
 .event-meta {
-  color: #46564b;
+  color: #313131;
   font-size: 0.875rem;
   font-weight: bold;
 }
@@ -97,7 +97,10 @@ h1,
 h2,
 h3 {
   font-family: var(--font-titoli);
-  line-height: 1.2;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  line-height: 1.15;
 }
 
 h1 {
@@ -169,7 +172,7 @@ h3 {
 
 .event-card {
   overflow: hidden;
-  border: 1px solid #b7c0b7;
+  border: 1px solid #313131;
   border-radius: 0.75rem;
   background: #ffffff;
 }
@@ -186,14 +189,14 @@ h3 {
 
 .event-place {
   margin-bottom: 0;
-  color: #46564b;
+  color: #313131;
   font-size: 0.875rem;
 }
 
 .site-footer {
   padding: 1.25rem 0;
-  border-top: 1px solid #b7c0b7;
-  color: #46564b;
+  border-top: 1px solid #ffffff;
+  color: #313131;
   font-size: 0.875rem;
 }
 
@@ -236,7 +239,7 @@ h3 {
   height: auto; /* Permette al contenitore di ridimensionarsi in altezza */
   margin: 2rem auto;
   border-radius: 0.75rem;
-  border: 1px solid #b7c0b7;
+  border: 1px solid #000000;
   background: #ffffff;
   padding-bottom: 2.5rem; /* Spazio per la paginazione e i pallini */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
@@ -248,7 +251,7 @@ h3 {
   height: auto;
   max-height: 350px; /* Limita l'altezza massima per monitor grandi */
   object-fit: contain; /* Mostra l'intera immagine senza tagliarla */
-  background-color: #f0f0f0; /* Sfondo neutro di riempimento se le proporzioni differiscono */
+  background-color: #ffffff; /* Sfondo neutro di riempimento se le proporzioni differiscono */
   border-top-left-radius: 0.75rem;
   border-top-right-radius: 0.75rem;
 }
@@ -273,7 +276,7 @@ h3 {
   max-width: 100%;
   border-radius: 0.75rem;
   overflow: hidden;
-  border: 1px solid #b7c0b7;
+  border: 1px solid #000000;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
@@ -324,7 +327,7 @@ h3 {
 /* Colore delle frecce (destra / sinistra) */
 .swiper-button-next,
 .swiper-button-prev {
-  color: var(--colore-primario) !important; /* Cambia qui il colore delle frecce */
+  color: #b7c0b7 !important; /* Cambia qui il colore delle frecce */
 }
 
 /* Colore del pallino ATTIVO */

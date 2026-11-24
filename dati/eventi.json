@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "titolo": "Lettere in movimento",
+    "data": "2026-06-12",
+    "orario": "10:00",
+    "categoria": "Incontro",
+    "descrizione": "Come cambia un messaggio quando cambiano le lettere? Un incontro su tipografia, ritmo e comunicazione visiva.",
+    "immagine": "assets/lettere-in-movimento.jpg",
+    "immagine_alt": "Lettere geometriche disposte su una griglia",
+    "sede_id": 1
+  },
+  {
+    "id": 2,
+    "titolo": "Manifesti con forbici e carta",
+    "data": "2026-06-12",
+    "orario": "14:30",
+    "categoria": "Laboratorio",
+    "descrizione": "Un laboratorio pratico per progettare un manifesto usando forme ritagliate, contrasti netti e poche parole.",
+    "immagine": "assets/materia-seconda.jpg",
+    "immagine_alt": "Forme ritagliate colorate sovrapposte come un manifesto",
+    "sede_id": 2
+  },
+  {
+    "id": 3,
+    "titolo": "Segni in città",
+    "data": "2026-06-12",
+    "orario": "18:00",
+    "categoria": "Mostra",
+    "descrizione": "Una raccolta di simboli, targhe, frecce e pittogrammi che aiutano a orientarsi negli spazi pubblici.",
+    "immagine": "assets/città-manifesto.jpg",
+    "immagine_alt": "Griglia di pittogrammi e frecce direzionali stilizzate",
+    "sede_id": 3
+  },
+  {
+    "id": 4,
+    "titolo": "Oggetti in dialogo",
+    "data": "2026-06-13",
+    "orario": "10:00",
+    "categoria": "Incontro",
+    "descrizione": "Designer e artigiani discutono come nascono gli oggetti quotidiani, tra funzione, cura dei dettagli e possibilità di riparazione.",
+    "immagine": "assets/oggetti-dialogo.jpg",
+    "immagine_alt": "Due forme geometriche si fronteggiano sopra una linea comune.",
+    "sede_id": 1
+  },
+  {
+    "id": 5,
+    "titolo": "Colori e superfici",
+    "data": "2026-06-13",
+    "orario": "15:00",
+    "categoria": "Laboratorio",
+    "descrizione": "Sperimentazione su carte, trame e accostamenti cromatici per costruire piccole palette visive.",
+    "immagine": "assets/colori-superfici.jpg",
+    "immagine_alt": "Campioni rettangolari di colori e trame affiancati",
+    "sede_id": 2
+  },
+  {
+    "id": 6,
+    "titolo": "Archivio aperto",
+    "data": "2026-06-13",
+    "orario": "18:30",
+    "categoria": "Mostra",
+    "descrizione": "Quaderni di schizzi, prototipi, prove di stampa e modelli raccolti durante le due giornate del festival.",
+    "immagine": "assets/archivio-aperto.jpg",
+    "immagine_alt": "Fogli di schizzi e prototipi disposti su un tavolo",
+    "sede_id": 3
+  }
+]
